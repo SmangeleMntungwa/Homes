@@ -308,8 +308,15 @@ function showPropertiesDescending() {
                 <span class="col-1">${property.category}</span >
                 <span class="col-1">$ ${property.price}</span>
                  <span class="col-1"></span>
-                <span class="col-1" id="CRUD-icons"><i class="bi bi-pencil-square" id="edit"></i><i onclick="delProperty()" class="bi bi-x-circle" id="delete"></i>
+
+                <span class="col-1" id="CRUD-icons">  button id="edit${property.id}" onclick="editItem(${item.id})"> <i class="bi bi-pencil-square" </i></button>
+                <button id="save${property.id}" onclick="saveItem(${property.id})" style="display: none"><i class="fa-solid fa-floppy-disk"></i></button> 
+                <button id="delete${property.id}" onclick="delProperty(${property.id})"><i class="bi bi-x-circle" ></i></button> 
+
+                
               </div>
+
+
             </li>
      `;
     });
