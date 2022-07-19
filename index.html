@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/effaa6b14d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Real Estate</title>
+</head>
+
+<body>
+    <section id="home">
+
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="top-nav">
+            <div class="container-md">
+                <a class="navbar-brand fs-6" href="admin.html"><a href="/" class="logo">
+                    <h1>MNTUNGWA</h1>
+                </a>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#listings">PROPERTY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">CONTACT</a>
+                    </li>
+
+
+                    <a href="admin.html"><button type="button" class="btn-listing mx-5" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" id="btn-add">MANAGE LISTINGS
+                        </button></a>
+
+            </div>
+        </nav>
+
+        <h1 class="text-center" id="heading">MNTUNGWA PROPERTY ADVISORS</h1>
+        <p id="subheading">
+            At Mntungwa Real Estate, you are number one. Whether you are a property
+            owner, tenant, or buyer, we value your business and will provide you
+            with the individual attention and service you deserve. We believe in a
+            strict Code of Ethics.
+        </p>
+    </section>
+    <div id="search-form">
+        <div class="radio-buttons-wrapper">
+            <div class="button">
+                <input type="radio" id="a25" name="check-substitution-2" checked />
+                <label class="btn btn-default" for="a25">All Status</label>
+            </div>
+            <div class="button">
+                <input type="radio" id="a50" name="check-substitution-2" />
+                <label class="btn btn-default" for="a50">For Rent</label>
+            </div>
+            <div class="button">
+                <input type="radio" id="a75" name="check-substitution-2" />
+                <label class="btn btn-default" for="a75">For Sale</label>
+            </div>
+        </div>
+        <div id="filter">
+            <form action="" id="search">
+                <label class="search-lbl" for="PropertyType">LOOKING FOR
+                    <select name="PropertyType" class="form-select form-select-sm" aria-label=".form-select-sm example"
+                        onchange="filterCategory()" id="categorySelect">
+                        <option value="" disabled selected hidden class="text-muted" value="">
+                            Property Type
+                        </option>
+                        <option value="APARTMENT">Apartment</option>
+                        <option value="STUDIO">Studio</option>
+                        <option value="OFFICE">Office</option>
+                    </select>
+                </label>
+                <label class="search-lbl" for="Cities">LOCATION
+                    <select name="Cities" class="form-select form-select-sm" aria-label=".form-select-sm example"
+                        onchange="filterCity()" id="citySelect">
+                        <option value="" selected hidden class="text-muted">
+                            All Cities
+                        </option>
+                        <option value="Cape Town">Cape Town</option>
+                        <option value="Johannesburg">Johannesburg</option>
+                        <option value="East London">East London</option>
+                        <option value="Durban">Durban</option>
+                    </select>
+                </label>
+                <label class="search-lbl" for="PropertySize">PROPERTY SIZE
+                    <select name="PropertySize" class="form-select form-select-sm" aria-label=".form-select-sm example"
+                        onchange="filterBedrooms()" id="sizeSelect">
+                        <option value="" selected hidden class="text-muted">
+                            Bedrooms
+                        </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </label>
+                <label class="search-lbl" for="Budget">YOUR BUDGET
+                    <select name="Budget" class="form-select form-select-sm" aria-label=".form-select-sm example"
+                        onchange="filterPrice()" id="budgetfilter">
+                        <option value="" selected hidden class="text-muted">
+                            Max. Price
+                        </option>
+                        <option value="1">Any</option>
+                        <option value="2">1000</option>
+                        <option value="3">3000</option>
+                        <option value="4">5000</option>
+                        <option value="5">10000</option>
+                        <option value="5">20000</option>
+                        <option value="5">60000</option>
+                    </select>
+                </label>
+                <button type="submit" id="search-btn" onclick="display()">SEARCH</button>
+            </form>
+        </div>
+    </div>
+    <section id="listings">
+        <div class="container">
+            <h1 class="text-center" id="heading-2">
+                Discover Our Featured Listings
+            </h1>
+            <p class="text-center text-muted" id="subheading-2">browse trending houses/apartments</p>
+        </div>
+
+
+        <div class="container" id="box-container">
+
+        </div>
+
+        <section id="footer">
+            <div class="info container">
+                <div class="info-item" id="discover-item">
+                    <h4 class="text-white">Discover</h4>
+                    <div class="cities">
+                        <a href="index.html" class="city"><i class="bi bi-caret-right"></i> Durban</a>
+                        <a href="index.html" class="city"><i class="bi bi-caret-right"></i> Cape Town</a>
+                        <a href="index.html" class="city"><i class="bi bi-caret-right"></i> Johannesburg</a>
+                        <a href="index.html" class="city"><i class="bi bi-caret-right"></i> East London</a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <h4 class="text-white" id="contact-header">Contact Us</h4>
+                    <div class="contact">
+                        <div class="contact-item">
+                            <i class="bi bi-geo"></i> 1590 Cheriton Dr Port Shepstone, KZN
+                            4243
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i> 083 442 9431
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-envelope"></i> help@mntungwaholdings.co.za
+                        </div>
+                    </div>
+                </div>
+                <div class="info-item" id="newsletter-wrapper">
+                    <div>
+                        <h4 class="text-white">Newsletter</h4>
+                    </div>
+                    <div id="newsletter">
+                        <input type="email" id="email-input" placeholder="Enter your email" />
+                        <button type="submit" id="email-btn">Submit</button>
+                    </div>
+                    <div>
+                        <p class="fw-light text-white" id="newsletter-notice">
+                            sign up for our news letter to get alerted whenever a new property
+                            goes on the market.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <footer id="footer-container">
+                <span class="rights text-white"> © Mntungwa - All rights reserved</span>
+                <img src="./images/me.jpg" alt="logo" id="logo-footer" />
+                <div class="socials-wrapper">
+                    <div class="linkedin text-white">
+                        <i class="bi bi-linkedin"></i>
+                    </div>
+                    <div class="twitter text-white">
+                        <i class="bi bi-twitter"></i>
+                    </div>
+                    <div class="facebook text-white">
+                        <i class="bi bi-facebook"></i>
+                    </div>
+                    <div class="instagram text-white">
+                        <i class="bi bi-instagram"></i>
+                    </div>
+                </div>
+            </footer>
+        </section>
+        <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
